@@ -17,19 +17,12 @@ export const styles = StyleSheet.create({
   task: {
     color: '#F2F2F2',
     fontWeight: '400',
-    fontSize: 14,
+    fontSize: 18,
     flex: 1,
-    paddingLeft: 0
+    paddingLeft: 10
   },
-  buttonDel: {
-    marginRight: 10,
-    width: 15,
-    height: 15,
-  },
-  btnTaskCheck: {
-    marginLeft: 10,
-    width: 15,
-    height: 5
+  buttonActs: {
+    width: 25
   }
   
 })
