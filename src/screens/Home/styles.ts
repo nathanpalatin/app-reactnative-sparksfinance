@@ -68,7 +68,11 @@ export const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: 'bold',
   },
-
+  noList: {
+    width: 180,
+    flexDirection: 'column',
+    height: 200
+  },
   myTasks: {
     marginTop: 20,
     paddingTop: 20,
