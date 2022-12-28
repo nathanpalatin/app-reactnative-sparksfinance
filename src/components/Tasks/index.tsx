@@ -1,20 +1,23 @@
 import { styles } from './style';
 import { Text, TouchableOpacity, View } from 'react-native';
 import Icon from 'react-native-vector-icons/AntDesign';
+import IconTask from 'react-native-vector-icons/Entypo';
+import IconTask2 from 'react-native-vector-icons/AntDesign';
 
 type Props = {
   task: string;
   onRemove: () => void;
+  checkTask: () => void;
 }
 
-export function Task({ task, onRemove }: Props){
+export function Task({ task, onRemove, checkTask }: Props){
 
   return (
    <>
     <View style={styles.card}>
-      <TouchableOpacity style={styles.buttonActs}>
+      <TouchableOpacity style={styles.buttonActs} onPress={checkTask}>
       <Text>
-        <Icon name="hearto" size={25} color={'#3E3E3E'}  />
+        <IconTask name="circle" size={25} color={'#4EA8DE'}  />
         </Text>   
         </TouchableOpacity>
       <Text style={styles.task}>

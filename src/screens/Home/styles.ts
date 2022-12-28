@@ -8,6 +8,7 @@ import { StyleSheet } from "react-native";
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
+    
     backgroundColor: '#1A1A1A',
     alignItems: 'center',
   },
@@ -48,6 +49,17 @@ export const styles = StyleSheet.create({
     color: '#FFFFFF',
     fontSize: 30,
   },
+ 
+  tag: {
+    borderRadius: 10,
+    borderColor: "#999",
+    backgroundColor: '#FFFFFF',
+    borderWidth: 3,
+    padding: 5,
+   
+    fontWeight: "400",
+    color: "#999"
+},
   formAdd: {
     width: '90%',
     flexDirection: 'row',
@@ -79,10 +91,13 @@ export const styles = StyleSheet.create({
     borderTopColor: '#333333',
     borderTopWidth: 0.9,
     width: '90%',
+    
     alignItems: 'center',
   },
   noneTask: {
+
     color: '#808080',
+    marginTop: 40,
     textAlign: 'center',
   },
   noneTaskBold: {

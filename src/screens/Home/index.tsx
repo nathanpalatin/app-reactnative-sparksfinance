@@ -8,7 +8,9 @@ import { Task } from '../../components/Tasks';
 export function Home(){
 
   const [tasks, setTasks] = useState<string[]>([]);
-  const [taskName, setTaskName] = useState('')
+  const [taskName, setTaskName] = useState('');
+  const [totalTasks, setTotalTasksDone ] = useState<number>();
+
 
   function handleAddTask() {
     if (tasks.includes(taskName)) {
@@ -19,6 +21,18 @@ export function Home(){
     setTaskName('');
   }
 
+  function handleTaskDone(name: string) {
+    return Alert.alert("Finalizou?", `Você terminou essa tarefa ${name}?`, [
+      {
+        text: 'Sim',
+      //  onPress: () => setTotalTasksDone(totalTasks => [...totalTasks + 1)   
+      },
+      {
+        text: 'Não',
+        style: 'cancel'
+      }
+    ])
+  }
  
   function handleTaskRemove(name: string) {
     Alert.alert("Remover", `Remover a tarefa ${name}?`, [
@@ -34,8 +48,9 @@ export function Home(){
   }
 
   return (
-    
+   
     <View style={styles.container}>
+     
       <View style={styles.topBG}>
       <Image
         style={styles.logoTodo}
@@ -49,7 +64,8 @@ export function Home(){
     placeholder="Adicione uma nova tarefa"
     placeholderTextColor="#808080"
     onChangeText={text => setTaskName(text)}
-    value={taskName}
+    
+    spellCheck={true}
     />
     <TouchableOpacity style={styles.btnAdd} onPress={handleAddTask}>
       <Text style={styles.textBtn}>
@@ -59,25 +75,28 @@ export function Home(){
     </View>
 
     <View style={styles.boxTasks}>
-
-      <Text style={styles.textTotalTasks}>Criadas 0</Text>
+      <Text style={styles.textTotalTasks}>Criadas {totalTasks}</Text>
       <Text style={styles.textTasksDone}>Concluídas 0</Text>
     </View>
    
-    <View style={styles.myTasks}>
-
+    <View style={styles.myTasks}> 
+      
     <FlatList
       data={tasks}
       keyExtractor={(item) => item}
       renderItem={({ item }) => (
-      <Task 
-      key={item} 
-      task={item}
-      onRemove={() => handleTaskRemove(item)}
-      />
-      )} 
-      showsVerticalScrollIndicator={true}
+  
+        <Task 
+          key={Math.random()} 
+          task={item}
+          onRemove={() => handleTaskRemove(item)}
+          checkTask={() => handleTaskDone(item)}
+        />
+       
+      )}
+      showsVerticalScrollIndicator={false}
         ListEmptyComponent={() => (
+          
           <Text style={styles.noneTask}>
               <NoList name="clipboard-list" size={70} /> {'\n'}{'\n'}
             <Text style={styles.noneTaskBold}>
@@ -89,7 +108,9 @@ export function Home(){
            
           )}
         />
-        </View>       
-      </View>
+        </View> 
+       
+    </View>
+      
     );
 }

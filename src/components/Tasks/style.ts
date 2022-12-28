@@ -5,9 +5,9 @@ export const styles = StyleSheet.create({
   card: {
     width: '100%',
     backgroundColor: '#262626',
-    padding: 20,
+    padding: 15,
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'space-evenly',
     borderRadius: 5,
     borderColor: '#333333',
     borderWidth: 1,
@@ -19,10 +19,14 @@ export const styles = StyleSheet.create({
     fontWeight: '400',
     fontSize: 18,
     flex: 1,
-    paddingLeft: 10
+    paddingLeft: 10,
+    paddingTop: 2,
+    
   },
   buttonActs: {
-    width: 25
+    width: 25,
+    alignItems: 'center',
+    justifyContent: 'center'
   }
   
 })
