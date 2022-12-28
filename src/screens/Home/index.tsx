@@ -1,17 +1,18 @@
 import { useState } from 'react';
 import { styles } from './styles';
 import { View, Image, TextInput, TouchableOpacity, Text, Alert, FlatList } from 'react-native';
-
+import BtnAdd from 'react-native-vector-icons/AntDesign';
+import NoList from 'react-native-vector-icons/FontAwesome5';
 import { Task } from '../../components/Tasks';
 
 export function Home(){
 
-  const [tasks, setTasks] = useState<String[]>([]);
+  const [tasks, setTasks] = useState<string[]>([]);
   const [taskName, setTaskName] = useState('')
 
   function handleAddTask() {
     if (tasks.includes(taskName)) {
-      return Alert.alert("Participante existe", "Já existe um participante na lista com esse nome.");
+      return Alert.alert("Tarefa já existente", "Essa tarefa já existe, irmão.");
     }
 
     setTasks(prevState => [...prevState, taskName]);
@@ -23,7 +24,7 @@ export function Home(){
     Alert.alert("Remover", `Remover a tarefa ${name}?`, [
       {
         text: 'Sim',
-        onPress: () => setTaskName(prevState => prevState.filter(quest => quest !== name))
+        onPress: () => setTasks(prevState => prevState.filter(task => task !== name))
       },
       {
         text: 'Não',
@@ -34,7 +35,7 @@ export function Home(){
 
   return (
     
-    <View style={styles.container} >
+    <View style={styles.container}>
       <View style={styles.topBG}>
       <Image
         style={styles.logoTodo}
@@ -52,14 +53,14 @@ export function Home(){
     />
     <TouchableOpacity style={styles.btnAdd} onPress={handleAddTask}>
       <Text style={styles.textBtn}>
-        +
+        <BtnAdd name="pluscircleo" size={25} />
         </Text>   
     </TouchableOpacity>
     </View>
 
     <View style={styles.boxTasks}>
 
-      <Text style={styles.textTotalTasks}>Criadas 3</Text>
+      <Text style={styles.textTotalTasks}>Criadas 0</Text>
       <Text style={styles.textTasksDone}>Concluídas 0</Text>
     </View>
    
@@ -70,31 +71,25 @@ export function Home(){
       keyExtractor={(item) => item}
       renderItem={({ item }) => (
       <Task 
-      key={Math.random()} 
+      key={item} 
       task={item}
       onRemove={() => handleTaskRemove(item)}
       />
-      
       )} 
-      showsVerticalScrollIndicator={false}
+      showsVerticalScrollIndicator={true}
         ListEmptyComponent={() => (
-         <>
-          <Image
-          style={styles.IMGnoTask}
-          source={require('../../images/notask.png')}
-          />
-
           <Text style={styles.noneTask}>
+              <NoList name="clipboard-list" size={70} /> {'\n'}{'\n'}
             <Text style={styles.noneTaskBold}>
               Você ainda não tem tarefas cadastradas
             </Text>
               {"\n"}
               Crie tarefas e organize seus itens a fazer
           </Text>
-          </>
+           
           )}
         />
-             </View>   
+        </View>       
       </View>
     );
 }
