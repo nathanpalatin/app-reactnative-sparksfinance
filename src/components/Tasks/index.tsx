@@ -14,7 +14,7 @@ export function Task({ task, onRemove, checkTask }: Props){
   return (
    <>
     <View style={styles.card}>
-      <TouchableOpacity style={styles.buttonActs} onPress={checkTask}>
+      <TouchableOpacity style={styles.buttonActs} onPress={checkTask} >
       <Text>
         <IconTask name="circle" size={25} color={'#4EA8DE'}  />
         </Text>   

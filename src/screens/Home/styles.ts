@@ -31,7 +31,7 @@ export const styles = StyleSheet.create({
     color: '#FFFFFF',
     marginRight: 4,
     borderColor: '#0D0D0D',
-    borderWidth: 1
+    borderWidth: 1,
   },
   btnAdd: {
     marginTop: -30,
@@ -40,13 +40,12 @@ export const styles = StyleSheet.create({
     height: 56,
     borderRadius: 7,
     justifyContent: 'center',
-    alignItems: 'center',
+    alignItems: 'center'
   },
   textBtn: {
     color: '#FFFFFF',
     fontSize: 30,
   },
- 
   tag: {
     borderRadius: 10,
     borderColor: "#999",

@@ -1,9 +1,27 @@
 {
   "extends": "expo/tsconfig.base",
   "compilerOptions": {
-    "baseUrl": "src",
+    "strict": true,
+    "baseUrl": "./",
     "paths": {
-      "~/*": ["*"],
+      "@assets/*": [
+        "./src/assets/*"
+      ],
+      "@components/*": [
+        "./src/components/*"
+      ],
+      "@routes/*": [
+        "./src/routes/*"
+      ],
+      "@screens/*": [
+        "./src/screens/*"
+      ],
+      "@theme/*": [
+        "./src/theme/*"
+      ],
+      "@images/*": [
+        "./src/images/*"
+      ],
     },
     "target": "ESNext",
     "useDefineForClassFields": true,
@@ -16,7 +34,6 @@
     "skipLibCheck": false,
     "esModuleInterop": false,
     "allowSyntheticDefaultImports": true,
-    "strict": true,
     "forceConsistentCasingInFileNames": true,
     "module": "ESNext",
     "sourceMap": true,

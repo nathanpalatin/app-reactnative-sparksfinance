@@ -14,15 +14,7 @@
       "@typescript-eslint", "no-null", "import", "eslint-plugin-local"
   ],
   "ignorePatterns": [
-      "**/node_modules/**",
-      "/built/**",
-      "/tests/**",
-      "/lib/**",
-      "/src/lib/*.generated.d.ts",
-      "/scripts/**/*.js",
-      "/scripts/**/*.d.*",
-      "/internal/**",
-      "/coverage/**"
+      "**/node_modules/**"
   ],
   "rules": {
       "sort-imports": ["error", {
