@@ -1,14 +1,10 @@
 import { StyleSheet } from "react-native";
-//import { useFonts } from 'expo-font';
+import { getStatusBarHeight } from 'react-native-iphone-x-helper';
 
-//const [loaded] = useFonts({
- // Inter: require('./assets/fonts/Yatra-One.ttf'),
-//});
 
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    
     backgroundColor: '#1A1A1A',
     alignItems: 'center',
   },
@@ -19,8 +15,9 @@ export const styles = StyleSheet.create({
     alignItems: 'center', 
   },
   logoTodo: {
-    marginTop: 60,
-    width: 160,
+    paddingTop: getStatusBarHeight(),
+    width: 140,
+    marginTop: 50,
     resizeMode: 'contain',
   },
   inputAdd: {

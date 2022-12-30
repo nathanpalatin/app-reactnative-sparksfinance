@@ -1,4 +1,5 @@
 {
+    
   "expo": {
     "name": "sparksfinance",
     "slug": "sparksfinance",
@@ -9,7 +10,7 @@
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#0053a8"
+      "backgroundColor": "#1E6F9F"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
@@ -23,7 +24,7 @@
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#0053a8"
+        "backgroundColor": "#1E6F9F"
       }
     },
     "web": {

@@ -8,6 +8,7 @@ export const styles = StyleSheet.create({
     padding: 15,
     flexDirection: 'row',
     justifyContent: 'space-evenly',
+    alignItems: 'center',
     borderRadius: 5,
     borderColor: '#333333',
     borderWidth: 1,
@@ -17,10 +18,11 @@ export const styles = StyleSheet.create({
   task: {
     color: '#F2F2F2',
     fontWeight: '400',
-    fontSize: 18,
+    fontSize: 14,
     flex: 1,
     paddingLeft: 10,
     paddingTop: 2,
+    
     
   },
   buttonActs: {

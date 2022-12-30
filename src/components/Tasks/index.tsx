@@ -2,7 +2,6 @@ import { styles } from './style';
 import { Text, TouchableOpacity, View } from 'react-native';
 import Icon from 'react-native-vector-icons/AntDesign';
 import IconTask from 'react-native-vector-icons/Entypo';
-import IconTask2 from 'react-native-vector-icons/AntDesign';
 
 type Props = {
   task: string;
