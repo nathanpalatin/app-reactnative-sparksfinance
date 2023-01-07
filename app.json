@@ -1,7 +1,7 @@
 {
     
   "expo": {
-    "name": "sparksfinance",
+    "name": "Todo List",
     "slug": "sparksfinance",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -10,7 +10,7 @@
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#1E6F9F"
+      "backgroundColor": "#9d02d9"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
@@ -24,7 +24,7 @@
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#1E6F9F"
+        "backgroundColor": "#9d02d9"
       }
     },
     "web": {

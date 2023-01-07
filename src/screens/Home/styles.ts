@@ -8,6 +8,9 @@ export const styles = StyleSheet.create({
     backgroundColor: '#1A1A1A',
     alignItems: 'center',
   },
+  scrollview: {
+    backgroundColor: 'pink',
+  },
   topBG: {
     height: 190,
     width: '900%',
@@ -32,6 +35,19 @@ export const styles = StyleSheet.create({
     marginRight: 4,
     borderColor: '#0D0D0D',
     borderWidth: 1,
+  },
+  inputAdd2: {
+    marginTop: -30,
+    flex: 1,
+    backgroundColor: '#262626',
+    height: 56,
+    padding: 20,
+    fontSize: 16,
+    borderRadius: 5,
+    color: '#FFFFFF',
+    marginRight: 4,
+    borderColor: '#3FdD',
+    borderWidth: 2,
   },
   btnAdd: {
     marginTop: -30,
@@ -82,12 +98,13 @@ export const styles = StyleSheet.create({
     height: 200
   },
   myTasks: {
+    flex: 1,
     marginTop: 20,
     paddingTop: 20,
     borderTopColor: '#333333',
     borderTopWidth: 0.9,
     width: '90%',
-    
+    paddingBottom: 40,
     alignItems: 'center',
   },
   noneTask: {

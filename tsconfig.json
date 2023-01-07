@@ -4,22 +4,22 @@
     "strict": true,
     "baseUrl": "./",
     "paths": {
-      "@assets/*": [
+      "~assets/*": [
         "./src/assets/*"
       ],
-      "@components/*": [
+      "~components/*": [
         "./src/components/*"
       ],
-      "@routes/*": [
+      "~routes/*": [
         "./src/routes/*"
       ],
-      "@screens/*": [
+      "~screens/*": [
         "./src/screens/*"
       ],
-      "@theme/*": [
+      "~theme/*": [
         "./src/theme/*"
       ],
-      "@images/*": [
+      "~images/*": [
         "./src/images/*"
       ],
     },
@@ -53,6 +53,8 @@
     
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    ".vscode",
+    ".expo"
   ]
 }

@@ -1,7 +1,7 @@
+import * as C from 'react';
 import { styles } from './style';
-import { Text, TouchableOpacity, View } from 'react-native';
-import Icon from 'react-native-vector-icons/AntDesign';
-import IconTask from 'react-native-vector-icons/Entypo';
+import * as T from 'react-native';
+import { MaterialIcons } from '@expo/vector-icons';
 
 type Props = {
   task: string;
@@ -9,26 +9,43 @@ type Props = {
   checkTask: () => void;
 }
 
+
+
+C.useEffect(() => {
+  
+}, []);
+
 export function Task({ task, onRemove, checkTask }: Props){
+  
+    const [isDone, setIsDone] = C.useState(false);
 
   return (
    <>
-    <View style={styles.card}>
-      <TouchableOpacity style={styles.buttonActs} onPress={checkTask} >
-      <Text>
-        <IconTask name="circle" size={25} color={'#4EA8DE'}  />
-        </Text>   
-        </TouchableOpacity>
-      <Text style={styles.task}>
+   <T.View style={styles.card}>     
+      <T.TouchableOpacity style={styles.buttonActs}
+          onPress={() => {
+            setIsDone(true);
+            checkTask();
+          }}
+        disabled={isDone}
+        >
+      <T.Text>
+        {
+          isDone ? <MaterialIcons name="check-circle" size={35} color="#5E60CE"  /> :
+          <MaterialIcons name="circle" size={35} color="#4EA8DE" />
+        }
+        </T.Text>   
+        </T.TouchableOpacity>
+      <T.Text style={isDone ? styles.taskDone : styles.task}>
         {task}
-      </Text>
-      <TouchableOpacity style={styles.buttonActs} onPress={onRemove}>
-      <Text>
-        <Icon name="delete" size={25} color={'#3E3E3E'} />
-        </Text>   
-      </TouchableOpacity>
-    </View>
+      </T.Text>
+      <T.TouchableOpacity style={styles.buttonActs} onPress={onRemove}>
+      <T.Text>
+      <MaterialIcons name="delete" size={35} color="#808080" />
+        </T.Text>   
+      </T.TouchableOpacity>
+    </T.View>
     </>
   )
-
+      
 }

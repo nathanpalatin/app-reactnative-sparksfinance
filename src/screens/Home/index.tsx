@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { styles } from './styles';
-import { View, TextInput, Pressable, Text, Alert, FlatList, Image } from 'react-native';
+import * as C from 'react-native';
 import BtnAdd from 'react-native-vector-icons/AntDesign';
 import NoList from 'react-native-vector-icons/MaterialIcons';
-import { Task } from '@components/Tasks';
+import { Task } from '~components/Tasks';
 
 export function Home(){
 
@@ -12,90 +12,94 @@ export function Home(){
   const [totalTasks, setTotalTasksDone ] = useState<number>(0);
   const [createdTasks, setTotalCreatedTasks ] = useState(0);
 
+  const [isFocused, setIsFocused] = useState(false);
+
   function handleAddTask() {
     if (tasks.includes(taskName)) {
-      return Alert.alert("Tarefa já existente", "Essa tarefa já existe, irmão.");
+        return C.Alert.alert('Ops, algo deu errado.', 'Essa tarefa já existe, finalize ou remova para adiciona-la novamente.');
     }
-    setTasks(prevState => [...prevState, taskName]);
-    setTotalCreatedTasks(createdTasks + 1) 
-    setTaskName('');
+      setTasks(prevState => [...prevState, taskName]);
+      setTaskName('');
+      setTotalCreatedTasks(createdTasks + 1); 
   }
 
   function handleTaskDone(name: string) {
-    return Alert.alert('Finalizou?', 'Você terminou essa tarefa ${name}?', [
+      C.Alert.alert('Finalizou jão?', 'Você terminou essa tarefa?', [
       {
         text: 'Sim',
         onPress: () => {
           setTotalTasksDone(totalTasks + 1);
-          //function add style into text task
         } 
       },
       {
         text: 'Não',
+        onPress: () => setTaskName(''),
         style: 'cancel'
       }
     ])
   }
  
   function handleTaskRemove(name: string) {
-    Alert.alert('Remover tarefa', 'Tem certeza que deseja remover a tarefa?', [
-    {
-        text: 'Sim',
-      onPress: () => {
-        setTasks(prevState => prevState.filter(task => task !== name));
-          if(createdTasks > 0) {
+       
+    setTasks(prevState => prevState.filter(task => task !== name));
+        if(createdTasks > 0) {
             setTotalCreatedTasks(createdTasks - 1);
-          }
-          if(totalTasks > 0) {
+        }
+        if(totalTasks > 0) {
             setTotalTasksDone(totalTasks - 1)
-          }
-      }
-    },
-      {
-        text: 'Não',
-        style: 'cancel'
-      }
-    ])
+        }
   }
 
-  return (
-   
-    <View style={styles.container}>
-      
-      <View style={styles.topBG}>
-        <Image source={require("@images/instagram.svg")} style={styles.logoTodo} />
-      </View>
 
-    <View style={styles.formAdd}>
+
+    return (
     
-    <TextInput
-    style={styles.inputAdd}
+<C.View style={styles.container}> 
+
+      <C.View style={styles.topBG}>
+        <C.Image source={require("~images/logo.png")} style={styles.logoTodo} />
+      </C.View>
+     
+  <C.View style={styles.formAdd}>
+
+    <C.TextInput 
+    onFocus={() => setIsFocused(true)}
+    onBlur={() => setIsFocused(false)}
+    style={[
+      styles.inputAdd,
+      isFocused ? styles.inputAdd2 : styles.inputAdd
+    ]}
     placeholder="Adicione uma nova tarefa"
     placeholderTextColor="#808080"
     onChangeText={text => setTaskName(text)}
-    />
-    
-   
-    <Pressable onPress={handleAddTask} style={styles.btnAdd} >
-    <BtnAdd name="pluscircleo" size={18} color={'#F2F2F2'} />
-    </Pressable>
-    </View>
+    value={taskName}
+    returnKeyType="done"
+    keyboardAppearance={'dark'}
+    />   
+      <C.Pressable
+          onPress={handleAddTask}
+          style={styles.btnAdd}
+          >
+            <BtnAdd name="pluscircleo" size={18} color={'#F2F2F2'} />
+      </C.Pressable>
+  </C.View>
 
-    <View style={styles.boxTasks}>
-      <Text style={styles.textTotalTasks}>
+
+    <C.View style={styles.boxTasks}>
+      <C.Text style={styles.textTotalTasks}>
         Criadas {createdTasks}
-      </Text>
-      <Text style={styles.textTasksDone}>
+      </C.Text>
+      <C.Text style={styles.textTasksDone}>
         Concluídas {totalTasks}
-      </Text>
-    </View>
+      </C.Text>
+    </C.View>
    
-    <View style={styles.myTasks}> 
-   
-    <FlatList
+    <C.View style={styles.myTasks}> 
+
     
+    <C.FlatList 
       data={tasks}
-      keyExtractor={(item ) => item}
+      keyExtractor={( item ) => item}
       renderItem={({ item }) => (
   
         <Task 
@@ -106,19 +110,19 @@ export function Home(){
         />
        
       )}
-      showsVerticalScrollIndicator={true}
+      showsVerticalScrollIndicator={false}
         ListEmptyComponent={() => (
-          <Text style={styles.noneTask}>
+          <C.Text style={styles.noneTask}>
               <NoList name="list-alt" size={60} /> {'\n'}{'\n'}
-            <Text style={styles.noneTaskBold}>
-              Você ainda não tem tarefas cadastradas
-            </Text>
+            <C.Text style={styles.noneTaskBold}>
+              Nathan, tu não tem nada pra fazer ainda esse ano?
+            </C.Text>
               {"\n"}
-              Crie tarefas e organize seus itens a fazer
-          </Text>
+              Eu sei que tu tem, vai!
+          </C.Text>
           )}
         />
-        </View> 
-    </View>
+        </C.View> 
+  </C.View>
     );
 }

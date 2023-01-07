@@ -12,8 +12,7 @@ export const styles = StyleSheet.create({
     borderRadius: 5,
     borderColor: '#333333',
     borderWidth: 1,
-    marginBottom: 10,
- 
+    marginBottom: 10
   },
   task: {
     color: '#F2F2F2',
@@ -22,13 +21,17 @@ export const styles = StyleSheet.create({
     flex: 1,
     paddingLeft: 10,
     paddingTop: 2,
-    
-    
+  },
+  taskDone: {
+    fontWeight: '400',
+    fontSize: 14,
+    flex: 1,
+    paddingLeft: 10,
+    paddingTop: 2,
+    textDecorationLine: 'line-through',
+    color: '#808080'
   },
   buttonActs: {
-    width: 25,
-    alignItems: 'center',
-    justifyContent: 'center'
+    alignItems: 'center', 
   }
-  
 })
